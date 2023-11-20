@@ -18,10 +18,10 @@
     }
   }
 }
-.prueba {
-  @include m.heading;
-}
-.texto {
-  @include m.heading;
-}
+// .prueba {
+//   @include m.heading(v.$amarillo, true);
+// }
+// .texto {
+//   @include m.heading;
+// }
 
