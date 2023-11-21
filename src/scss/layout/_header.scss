@@ -9,9 +9,28 @@
 }
 
 .navegacion-principal {
+  
+  background-color: red;
+  @include m.telefono {
+    background-color: blue;
+  }
+  @include m.tablet {
+    background-color: cornflowerblue;
+  }
+  @include m.desktop {
+    background-color: darkgreen;
+  }
+  @include m.desktopXL {
+    background-color: darkblue;
+  }
   a {
     color: v.$blanco;
     font-size: 2.4rem;
+
+    @include m.telefono {
+      font-size: 8rem;
+      color: blue;
+    }
 
     &:hover {
       color: v.$amarillo
@@ -24,4 +43,5 @@
 // .texto {
 //   @include m.heading;
 // }
+
 
