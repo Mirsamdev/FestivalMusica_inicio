@@ -16,9 +16,10 @@ const avif = require('gulp-avif')
 
 function css(done) {
 src("src/scss/**/*.scss")// Identificar el archivo de SASS
-.pipe(plumber())
-.pipe(sass())// Compilarlo
-.pipe(dest("build/css")) // Almacenar en el disco duro
+.pipe( plumber())
+.pipe( sass())// Compilarlo
+.pipe( postcss([ autoprefixer(), cssnano()]) )
+.pipe( dest("build/css")) // Almacenar en el disco duro
 
   done() // Callback que avisa a gulp cuando llegamos al final 
 }
@@ -77,5 +78,5 @@ exports.js = javascript;
 exports.imagenes = imagenes
 exports.versionWebp = versionWebp;
 exports.versionAvif = versionAvif;
-exports.dev = parallel( imagenes, versionWebp, versionAvif, javascript, dev) ;
+exports.dev = parallel( css, imagenes, versionWebp, versionAvif, javascript, dev) ;
 
